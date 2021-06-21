@@ -1,0 +1,16 @@
+<?php
+/** @var \Magento\Backend\Block\Template $block */
+/** @var \Magento\Framework\Escaper $escaper */
+/** @var Space48\SSO\ViewModel\Adminhtml\Login $login */
+$login = $block->getData('login_view_model');
+?>
+<?php if ($login->isEnabled()): ?>
+    <div class="page-separator"></div>
+    <form action="<?= $login->getLoginUrl() ?>" method="post">
+        <div class="actions">
+            <button class="action-login action-secondary">
+                <span><?= $escaper->escapeHtml(__('Sign in with Identity Provider')) ?></span>
+            </button>
+        </div>
+    </form>
+<?php endif; ?>

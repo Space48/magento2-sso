@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="admin">
+            <group id="space48_sso" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Single Sign-On</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <group id="idp" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Identity Provider Configuration</label>
+                    <depends>
+                        <field id="admin/space48_sso/enabled">1</field>
+                    </depends>
+                    <field id="entity_id" translate="label" type="text" sortOrder="10" showInDefault="1">
+                        <label>Entity Identifier</label>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="sign_on_url" translate="label" type="text" sortOrder="20" showInDefault="1">
+                        <label>Single Sign-On URL</label>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="public_certificate" translate="label" type="textarea" sortOrder="30" showInDefault="1">
+                        <label>Public Certificate</label>
+                        <validate>required-entry</validate>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

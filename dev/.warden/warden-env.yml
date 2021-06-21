@@ -1,0 +1,9 @@
+version: "3.5"
+
+x-volumes: &x-volumes
+  - ../:/var/www/html/extension:cached
+
+services:
+  nginx: { volumes: *x-volumes }
+  php-fpm: { volumes: *x-volumes }
+  php-debug: { volumes: *x-volumes }

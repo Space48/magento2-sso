@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="login.content">
+            <block class="Magento\Backend\Block\Template"
+                   name="space48_sso_auth_login_buttons"
+                   template="Space48_SSO::login/buttons.phtml"
+                   after="admin.login"
+            >
+                <arguments>
+                    <argument name="login_view_model" xsi:type="object">Space48\SSO\ViewModel\Adminhtml\Login</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,17 @@
+{
+    "name": "space48/magento2-sso",
+    "description": "SAML based single sign-on integration for Magento 2 backend.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "onelogin/php-saml": "^4.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Space48\\SSO\\": "src/"
+        }
+    }
+}
