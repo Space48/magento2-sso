@@ -3,4 +3,7 @@
     <type name="Magento\User\Block\User\Edit\Tab\Main">
         <plugin name="space48_sso_add_sso_fields" type="Space48\SSO\Plugin\Magento\User\AddSSOFieldsToUserEditForm" />
     </type>
+    <type name="Magento\User\Model\User">
+        <plugin name="space48_sso_restrict_password_login" type="Space48\SSO\Plugin\Magento\User\RestrictPasswordLoginForSSOUsers" />
+    </type>
 </config>
