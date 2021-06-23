@@ -18,6 +18,7 @@ use Space48\SSO\Exception\UserException;
 class UserManager
 {
     private const PASSWORD_LENGTH = 32;
+    private const SSO_FLAG_KEY = 'is_sso';
 
     /**
      * @var UserFactory
@@ -71,6 +72,11 @@ class UserManager
         $this->eventManager = $eventManager;
     }
 
+    public function isSSOUser(User $user): bool
+    {
+        return (int)$user->getData(self::SSO_FLAG_KEY) === 1;
+    }
+
     /**
      * @throws ServiceException
      * @throws UserException
@@ -98,6 +104,7 @@ class UserManager
             ->setEmail($email)
             ->setFirstName($firstname)
             ->setLastName($lastname)
+            ->setData('is_sso', 1)
             ->setRoleId($roleId);
 
         if (!$user->getPassword()) {

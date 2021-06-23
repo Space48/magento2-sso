@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\User\Block\User\Edit\Tab\Main">
+        <plugin name="space48_sso_add_sso_fields" type="Space48\SSO\Plugin\Magento\User\AddSSOFieldsToUserEditForm" />
+    </type>
+</config>
