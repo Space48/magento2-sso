@@ -7,22 +7,34 @@ use Magento\Framework\Data\Form\Element\Fieldset;
 use Magento\Framework\DataObject;
 use Magento\Framework\Registry;
 use Magento\User\Block\User\Edit\Tab\Main;
+use Space48\SSO\Model\Config;
 
 class AddSSOFieldsToUserEditForm
 {
+    /**
+     * @var Config
+     */
+    private $config;
+
     /**
      * @var Registry
      */
     private $registry;
 
     public function __construct(
+        Config $config,
         Registry $registry
     ) {
+        $this->config = $config;
         $this->registry = $registry;
     }
 
     public function beforeGetFormHtml(Main $subject): void
     {
+        if (!$this->config->isEnabled()) {
+            return;
+        }
+
         $form = $subject->getForm();
         if (!$form instanceof Form) {
             return;
