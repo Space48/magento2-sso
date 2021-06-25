@@ -5,11 +5,11 @@
         <plugin name="space48_sso_remove_identity_check_fields" type="Space48\SSO\Plugin\Magento\RemoveIdentityCheckFormFields" />
     </type>
     <type name="Magento\User\Model\User">
-        <plugin name="space48_sso_restrict_password_login" type="Space48\SSO\Plugin\Magento\User\RestrictPasswordLoginForSSOUsers" />
+        <plugin name="space48_sso_restrict_password_login" type="Space48\SSO\Plugin\Magento\User\RestrictPasswordLogin" />
         <plugin name="space48_sso_disable_identity_check" type="Space48\SSO\Plugin\Magento\User\BypassIdentityCheck" />
     </type>
     <type name="Magento\User\Model\Spi\NotificatorInterface">
-        <plugin name="space48_sso_restrict_password_reset" type="Space48\SSO\Plugin\Magento\User\RestrictResetPasswordForSSOUsers" />
+        <plugin name="space48_sso_restrict_password_reset" type="Space48\SSO\Plugin\Magento\User\RestrictResetPassword" />
     </type>
     <type name="Magento\Backend\Block\System\Account\Edit\Form">
         <plugin name="space48_sso_remove_identity_check_fields" type="Space48\SSO\Plugin\Magento\RemoveIdentityCheckFormFields" />

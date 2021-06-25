@@ -2,11 +2,13 @@
 
 namespace Space48\SSO\Plugin\Magento\User;
 
+use Magento\User\Api\Data\UserInterface;
+use Magento\User\Model\Spi\NotificatorInterface;
 use Magento\User\Model\User;
 use Space48\SSO\Model\Config;
 use Space48\SSO\Model\UserManager;
 
-class RestrictPasswordLoginForSSOUsers
+class RestrictResetPassword
 {
     /**
      * @var Config
@@ -26,15 +28,19 @@ class RestrictPasswordLoginForSSOUsers
         $this->userManager = $userManager;
     }
 
-    public function aroundVerifyIdentity(User $subject, callable $proceed, ...$args)
-    {
+    public function aroundSendForgotPassword(
+        NotificatorInterface $subject,
+        callable $proceed,
+        UserInterface $user
+    ): void {
         if (
-            $this->config->isEnabled()
-            && $this->userManager->isSSOUser($subject)
+            $user instanceof User
+            && $this->config->isEnabled()
+            && $this->userManager->isSSOUser($user)
         ) {
-            return false;
+            return;
         }
 
-        return $proceed(...$args);
+        $proceed($user);
     }
 }
