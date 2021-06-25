@@ -5,7 +5,6 @@ namespace Space48\SSO\Model;
 use Magento\Authorization\Model\ResourceModel\Role\CollectionFactory as RoleCollectionFactory;
 use Magento\Backend\Model\Auth\StorageInterface as AuthStorageInterface;
 use Magento\Framework\Event\ManagerInterface;
-use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Math\Random;
 use Magento\Security\Model\AdminSessionsManager;
@@ -75,6 +74,13 @@ class UserManager
     public function isSSOUser(User $user): bool
     {
         return (int)$user->getData(self::SSO_FLAG_KEY) === 1;
+    }
+
+    public function isCurrentUserSSO(): bool
+    {
+        $user = $this->authStorage->getUser();
+
+        return $user instanceof User && $this->isSSOUser($user);
     }
 
     /**
