@@ -4,6 +4,14 @@
     "type": "library",
     "license": "MIT",
     "require": {
+        "magento/module-authorization": "^100.3.6",
+        "magento/module-backend": ">=101.0.7 <103.0.0",
+        "magento/module-config": "^101.0.7",
+        "magento/framework": ">=102.0.7 <104.0.0",
+        "magento/module-integration": "^100.3.6",
+        "magento/module-security": "^100.3.6",
+        "magento/module-store": "^101.0.7",
+        "magento/module-user": "^101.1.7",
         "onelogin/php-saml": "^4.0"
     },
     "autoload": {
