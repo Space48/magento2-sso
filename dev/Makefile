@@ -71,7 +71,7 @@ create-project:
 			/tmp/magento \
 		&& cd /tmp/magento \
 		&& composer config repositories.extension path /var/www/html/extension \
-		&& composer require --no-update $(PACKAGE_NAME):dev-master \
+		&& composer require --no-update $(PACKAGE_NAME):dev-main \
 		&& composer update \
 		&& rsync -a /tmp/magento/ /var/www/html \
 		&& rm -rf /tmp/magento \
