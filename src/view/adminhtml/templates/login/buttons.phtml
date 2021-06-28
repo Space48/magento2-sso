@@ -3,6 +3,7 @@
 /** @var \Magento\Framework\Escaper $escaper */
 /** @var Space48\SSO\ViewModel\Adminhtml\Login $login */
 $login = $block->getData('login_view_model');
+$escaper = $escaper ?? $block; // Fix for M2.3 compatibility
 ?>
 <?php if ($login->isEnabled()): ?>
     <div class="page-separator"></div>
