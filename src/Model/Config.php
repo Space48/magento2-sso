@@ -8,6 +8,7 @@ use OneLogin\Saml2\Constants;
 class Config
 {
     private const XML_PATH_ENABLED = 'admin/space48_sso/enabled';
+    private const XML_PATH_SP_ENTITY_ID = 'admin/space48_sso/sp/entity_id';
     private const XML_PATH_IDP_ENTITY_ID = 'admin/space48_sso/idp/entity_id';
     private const XML_PATH_IDP_SIGN_ON_URL = 'admin/space48_sso/idp/sign_on_url';
     private const XML_PATH_IDP_PUBLIC_CERTIFICATE = 'admin/space48_sso/idp/public_certificate';
@@ -42,7 +43,7 @@ class Config
             'debug' => false,
             'baseurl' => $this->url->getBackendUrl(),
             'sp' => [
-                'entityId' => $this->url->getBackendUrl(),
+                'entityId' => $this->config->getValue(self::XML_PATH_SP_ENTITY_ID) ?? $this->url->getBackendUrl(),
                 'assertionConsumerService' => [
                     'url' => $this->url->getLoginCallbackUrl(),
                     'binding' => Constants::BINDING_HTTP_POST,

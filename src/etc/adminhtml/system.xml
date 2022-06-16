@@ -8,7 +8,17 @@
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <group id="idp" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="1">
+                <group id="sp" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Service Provider Configuration</label>
+                    <depends>
+                        <field id="admin/space48_sso/enabled">1</field>
+                    </depends>
+                    <field id="entity_id" translate="label" type="text" sortOrder="10" showInDefault="1">
+                        <label>Entity Identifier</label>
+                        <comment>If empty, shop backend URL will be used</comment>
+                    </field>
+                </group>
+                <group id="idp" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="0" showInStore="1">
                     <label>Identity Provider Configuration</label>
                     <depends>
                         <field id="admin/space48_sso/enabled">1</field>
