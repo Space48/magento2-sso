@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2022-06-17
+
+### Added
+
+- Added compatibility with Azure SSO (thanks @p24-max!)
+- Added the ability to customise the Service Provider entity ID
+- Added the ability to set a static user role instead of using the Identity Provider attribute
+- Added the ability to customise the Identity Provider attribute names for firstname, lastname, email and role
+
 ## [1.0.0] - 2021-06-28
 
 ### Added
