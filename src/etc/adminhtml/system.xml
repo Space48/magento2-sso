@@ -8,7 +8,21 @@
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <group id="idp" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="1">
+                <group id="sp" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Service Provider Configuration</label>
+                    <depends>
+                        <field id="admin/space48_sso/enabled">1</field>
+                    </depends>
+                    <field id="entity_id" translate="label" type="text" sortOrder="10" showInDefault="1">
+                        <label>Entity Identifier</label>
+                        <comment>If empty, shop backend URL will be used</comment>
+                    </field>
+                    <field id="static_magento_role_name" translate="label" type="text" sortOrder="20" showInDefault="1">
+                        <label>Static magento role name</label>
+                        <comment>If set, all SSO backend login users will be assigned to this role (eg. Administrators). If not set, IDP provided role will be used.</comment>
+                    </field>
+                </group>
+                <group id="idp" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="0" showInStore="1">
                     <label>Identity Provider Configuration</label>
                     <depends>
                         <field id="admin/space48_sso/enabled">1</field>
@@ -24,6 +38,22 @@
                     <field id="public_certificate" translate="label" type="textarea" sortOrder="30" showInDefault="1">
                         <label>Public Certificate</label>
                         <validate>required-entry</validate>
+                    </field>
+                    <field id="attribute_firstname" translate="label" sortOrder="40" showInDefault="1">
+                        <label>SAML attribute name FirstName</label>
+                        <comment>Default: firstname</comment>
+                    </field>
+                    <field id="attribute_lastname" translate="label" sortOrder="50" showInDefault="1">
+                        <label>SAML attribute name LastName</label>
+                        <comment>Default: lastname</comment>
+                    </field>
+                    <field id="attribute_email" translate="label" sortOrder="60" showInDefault="1">
+                        <label>SAML attribute name Email</label>
+                        <comment>Default: email</comment>
+                    </field>
+                    <field id="attribute_role" translate="label" sortOrder="70" showInDefault="1">
+                        <label>SAML attribute name Role</label>
+                        <comment>The value for this attribute will be used as magento role for the user. Default: role</comment>
                     </field>
                 </group>
             </group>

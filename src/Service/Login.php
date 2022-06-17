@@ -127,15 +127,24 @@ class Login
 
         $user = $this->userManager->upsertUser(
             $auth->getNameId(),
-            $this->getRequiredAttribute($auth, 'email'),
-            $this->getRequiredAttribute($auth, 'firstname'),
-            $this->getRequiredAttribute($auth, 'lastname'),
-            $this->getRequiredAttribute($auth, 'role')
+            $this->getRequiredAttribute($auth, $this->config->getEmailAttributeName()),
+            $this->getRequiredAttribute($auth, $this->config->getFirstNameAttributeName()),
+            $this->getRequiredAttribute($auth, $this->config->getLastNameAttributeName()),
+            $this->getMagentoRoleName($auth)
         );
 
         $this->userManager->login($user);
 
         return $auth->redirectTo('', [], true);
+    }
+
+    private function getMagentoRoleName(Auth $auth): string
+    {
+        if ($this->config->hasStaticMagentoRoleName()) {
+            return $this->config->getStaticMagentoRoleName();
+        }
+
+        return $this->getRequiredAttribute($auth, $this->config->geRoleAttributeName());
     }
 
     /**
