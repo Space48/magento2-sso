@@ -77,6 +77,9 @@ class Config
             'strict' => true,
             'debug' => false,
             'baseurl' => $this->url->getBackendUrl(),
+            'security' => [
+                'requestedAuthnContext' => false,
+            ],
             'sp' => [
                 'entityId' => $this->config->getValue(self::XML_PATH_SP_ENTITY_ID) ?? $this->url->getBackendUrl(),
                 'assertionConsumerService' => [
