@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2022-07-15
+
+### Fixed
+
+- Fixed an error when logging in with Azure AD SSO using one time passcode authentication (thanks @p24-max!)
+
 ## [1.1.0] - 2022-06-17
 
 ### Added
